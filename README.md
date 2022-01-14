@@ -33,3 +33,5 @@ Graph specifications such as title variable size of the window, y, and x-axis la
 data controller class:
 the class that makes the connection between java and Arduino and allows java to receive
 data from Arduino ( uses in the graph of the moisture sensor value).
+
+NOTE : The SerialPortService and DataController has been written with help of Dr.Smith my OOP professor at York University.
