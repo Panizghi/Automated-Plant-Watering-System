@@ -22,14 +22,14 @@ public class Mainmin extends Application {
     private final static int MAX_POTENTIOMETER_VALUE = 1 << 10;
     @Override
     public void start(Stage primaryStage) {
-        var sp = SerialPortService.getSerialPort("/dev/cu.usbserial-0001");
+        var sp = SerialPortService.getSerialPort("/dev/cu.usbserial-0001"); //port the Arduino is conncted to and is going to send and accept data from 
         var outputStream = sp.getOutputStream();
-        var button = new Button("PUMP!");
+        var button = new Button("PUMP!");    //button implementation
         var pane = new BorderPane();
 
         var slider = new Slider();
         slider.setMin(0.0);
-        slider.setMax(100.0);
+        slider.setMax(100.0);               //slider range implemented
 
         button.setOnMousePressed(value->{
             try {
