@@ -1,3 +1,4 @@
+//import fazecast for serial port conncetion packges including the rest of the classes and javafx for the graph visuals
 package sample;
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortEvent;
@@ -8,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 
 import java.nio.ByteBuffer;
+
+//public classes for lsitening to data and override elemts to override the element in superclass
 
 public class DataController implements SerialPortMessageListenerWithExceptions {
     private static final byte[] DELIMITER = new byte[]{'\n'};
@@ -28,7 +31,6 @@ public class DataController implements SerialPortMessageListenerWithExceptions {
 
     @Override
     public void serialEvent(SerialPortEvent serialPortEvent) {
-        // TODO: Implement this method. Refer to the documentation for more details.
         if (serialPortEvent.getEventType() != SerialPort.LISTENING_EVENT_DATA_RECEIVED){
             return;
         }
