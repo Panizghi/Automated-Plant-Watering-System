@@ -17,7 +17,7 @@ public class MYGRAPH extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+//graph soecifications such as window opening, axis and, timing etc,
     @Override
     public void start(Stage stage) {
         var controller = new DataController(); // create the controller
