@@ -1,82 +1,68 @@
-# Automated-Watering-system-for-plants
-### INTRODUCTION:
+# Automated Watering System for Plants
 
-In this project, It has been tried to build an automated/manual watering plant system by using Java programming language and Arduino UNO compatible board. By detecting the moisture level of soil and sending data to java the project is able to graph the moisture level vs time, Arduino water the plant if the soil is dry, and use the java button to manually water the plant. Moreover, the project can demonstrate live moisture level vs time graph and turn on and off the buzzer and LED based on the slider that has been made in Java.
+## Introduction
 
-### CONTEXT:
+This project aims to create an automated/manual watering system for plants using the Java programming language and an Arduino UNO compatible board. By detecting soil moisture levels, the system can graph moisture levels vs. time, automatically water the plant when the soil is dry, and allow manual watering through a Java interface. The project also features a live moisture level vs. time graph and the ability to control a buzzer and LED based on a Java slider.
 
-In this program, the combination of Arduino and Java has been used. The reason behind this selection is the ability to send and receive data between two programming platforms. While Arduino acts as the main receiver in the automated and manual parts of the project. In graphing part, it turned out to be a data sender where java uses this data to graph the function. Both Arduino and Java are the main pieces of this project which held the design output desirable. The bridge of connection between java and Arduino is the computer Serial port which either sends data from Arduino to java or vice versa. This serial port connection is the main key to the success of the project since the main aim is communication between java and Arduino which could use data in a sufficient pathway.
+## Context
 
-### TECHNICAL REQUIREMENTS / SPECIFICATIONS:
+The project utilizes a combination of Arduino and Java for their ability to exchange data seamlessly. Arduino serves as the main receiver for both automated and manual watering, while Java is responsible for graphing and user interface controls. The communication between Arduino and Java is facilitated through the computer's serial port.
 
-- The system is able to detect the moisture level of the soil and water the plant automatically.
+## Technical Requirements / Specifications
 
-By having the wet threshold if the analog read of the moisture sensor is high- the soil is dry- and the pump would be turned by the code in Arduino on otherwise, the pump remains off.
+- **Automated Watering:** The system detects soil moisture levels and waters the plant automatically.
+- **Manual Operation:** Manual watering is possible through buttons implemented in Java.
+- **Live Graphing:** The system graphs live moisture levels using data received from Arduino.
+- **LED and Buzzer Control:** A slider in Java controls the on/off state of the LED and buzzer.
 
-- The system can work manually with buttons implemented in java
+## Components List
 
-Since the system is not able to receive data from two sources at the same time for some time interval the system can use the byte data sent from java to turn the pump on and off manually.
-
-- The system is able to show a live graph of moisture level
-
-Java graph the live moisture level of the sensor by receiving data from Arduino
-
-- The system is able to turn the LED and buzzer on and off with the slider implemented in java.
-
-By sending a specific byte value range from java to Arduino the LED and buzzer turn on and off proportional to the slide movement.
-
-Most of the java part is based on the specifications that when the button on JavaFX is pressed sends a specific byte value to Arduino and when the Arduino receives this specific byte go through a conditional statement and does what it need suppose to do. The slider also has been set within the range of 1-100 which again makes a condition in java that if it is more than 50 send a particular byte value and go through else if the condition that has been made for the button.
-
-### COMPONENTS LIST:
-
-Physical components:
-
+**Physical Components:**
 - Battery Pack
 - MOSFET
 - Arduino Grove Board
-- wire
-- 5v Pump
+- Wires
+- 5V Pump
 - Tube
-- Water and container
+- Water Container
 - Plant
-- Moisture sensor
+- Moisture Sensor
 
-Software components:
-
+**Software Components:**
 - IntellijIDEA
-- Arduino
+- Arduino IDE
 
-### PROCEDURE:
+## Procedure
 
-1) Setting up the physical components :
+### Setting up the Physical Components
 
-- Connecting the MOSFET to the battery pack and the pump
-- connecting the pump to D2 and swapping the moisture sensor wire input and connecting it to A1.
-- Connect the board to the computer and place the moisture sensor in the soil and water pump in the water container.
+1. Connect MOSFET to the battery pack and the pump.
+2. Connect the pump to D2 and swap the moisture sensor wire input, connecting it to A1.
+3. Connect the board to the computer and place the moisture sensor in the soil, with the water pump in the water container.
 
-2) Software
+### Software
 
-- Arduino: Setting up the void setup for each sensor, serial begin, etc.
-    - creating three void setups for three conditions that we have ( Live graph Manual button/slider and automated system. The automated system does not depend on java data.
-    - I added specifications of the slider to the manual part void function as a range so the buzzer and led turn on-off based on the data received from java.
-    - Creating the loop in java by using time intervals allows Arduino to receive data from java and then analog read based on the time interval conditions. Flagging plays an important role since if Arduino receives data from java without having a flag it would ignore the rest of the code.
-- Java files include :
-    - Main class:
-        - Including the code for the slider button and the byte that will send if the mouse is pressed or released the JavaFX, and the stage of the button and slider.
-    - SerialPortService:
-        - Make the bridge between Arduino and Java and allow java to send data (byte) to Arduino.
-    - MYGRAPH class :
-        - Graph specifications such as title variable size of the window, y, and x-axis labels, etc.
-    - Data controller class:
-        - The class that makes the connection between java and Arduino and allows java to receive data from Arduino (used in the graph of the moisture sensor value).
-- I imported the VM to the JavaFX so I would be able to demonstrate the button slider and the graph and important library for connection of the serial port from maven and library of java SDK 14. Finally, by putting all these components together the system starts to work!
+#### Arduino
 
-Refrences :
+- Set up void setups for each sensor, serial begin, etc.
+- Create void setups for live graphing, manual button/slider, and the automated system.
+- Implement specifications for the slider in the manual part void function to control the buzzer and LED based on data received from Java.
+- Create a loop in Java with time intervals for Arduino to receive data and perform analog reads based on the time interval conditions.
 
-James Andrew Smith • Associate professor
-  Department of Electrical Engineering and Computer Science
-	Lassonde School of Engineering
+#### Java
 
-Eric Prandovszky • Laboratory Technologist
-	Department of Electrical Engineering and Computer Science
-	Lassonde School of Engineering
+- **Main Class:**
+  - Code for the slider button, byte sent on mouse press/release, JavaFX stage, and slider.
+- **SerialPortService:**
+  - Bridge between Arduino and Java, enabling Java to send data (byte) to Arduino.
+- **MYGRAPH Class:**
+  - Graph specifications such as title, window size, y and x-axis labels, etc.
+- **Data Controller Class:**
+  - Establishes the connection between Java and Arduino, allowing Java to receive data from Arduino.
+
+Import VM to JavaFX, use important libraries for serial port connection, and compile all components to make the system operational.
+
+## References
+
+- James Andrew Smith, Associate Professor, Department of Electrical Engineering and Computer Science, Lassonde School of Engineering.
+- Eric Prandovszky, Laboratory Technologist, Department of Electrical Engineering and Computer Science, Lassonde School of Engineering.
